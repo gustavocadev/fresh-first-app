@@ -1,18 +1,14 @@
 /** @jsx h */
 import { h } from 'preact';
-import { IS_BROWSER } from '$fresh/runtime.ts';
 import { tw } from '@twind';
 import { useEffect, useState } from 'preact/hooks';
-import type { Handlers, PageProps } from '$fresh/server.ts';
 import { Post } from './FormPost.tsx';
 
 type FormEdit = {
-  props: PageProps;
+  id: string;
 };
 
-const FormEdit = ({ props }: FormEdit) => {
-  const { params } = props;
-
+const FormEdit = (props: FormEdit) => {
   const [post, setPost] = useState<Post>({
     id: '',
     title: '',
@@ -22,7 +18,7 @@ const FormEdit = ({ props }: FormEdit) => {
   );
 
   useEffect(() => {
-    const post = posts.find((p) => p.id === params.id);
+    const post = posts.find((p) => p.id === props.id);
     setPost({
       id: post?.id ?? '',
       title: post?.title ?? '',

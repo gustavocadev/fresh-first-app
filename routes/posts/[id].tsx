@@ -14,5 +14,6 @@ import FormEdit from '../../islands/FormEdit.tsx';
 // };
 
 export default function Post(props: PageProps) {
-  return <FormEdit props={props} />;
+  const { params } = props;
+  return <FormEdit id={params.id} />;
 }
