@@ -13,9 +13,14 @@ const FormEdit = (props: FormEdit) => {
     id: '',
     title: '',
   });
-  const [posts, setPosts] = useState<Post[]>(
-    JSON.parse(localStorage.getItem(`posts`) ?? '[]')
-  );
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const postsFromLocalStorage = JSON.parse(
+      localStorage.getItem(`posts`) ?? '[]'
+    );
+    setPosts(postsFromLocalStorage);
+  }, []);
 
   useEffect(() => {
     const post = posts.find((p) => p.id === props.id);
@@ -23,7 +28,7 @@ const FormEdit = (props: FormEdit) => {
       id: post?.id ?? '',
       title: post?.title ?? '',
     });
-  }, []);
+  }, [posts]);
 
   const editPost = (id: string) => {
     const updatedPosts = posts.map((p) => {
