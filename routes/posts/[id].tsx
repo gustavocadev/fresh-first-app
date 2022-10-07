@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from 'preact';
-import { tw } from '@twind';
 import type { Handlers, PageProps } from '$fresh/server.ts';
 import FormEdit from '../../islands/FormEdit.tsx';
 

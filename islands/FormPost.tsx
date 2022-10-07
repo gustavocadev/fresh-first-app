@@ -1,7 +1,5 @@
-/** @jsx h */
-import { h } from 'preact';
 import { IS_BROWSER } from '$fresh/runtime.ts';
-import { tw } from '@twind';
+import { JSX } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
 export type Post = {
@@ -18,7 +16,7 @@ export default function FormPost() {
 
   const { title } = post;
 
-  const handleSubmit = (e: h.JSX.TargetedEvent<HTMLFormElement, Event>) => {
+  const handleSubmit = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
     e.preventDefault();
 
     createAPost();
@@ -62,7 +60,7 @@ export default function FormPost() {
         <input
           type="text"
           name="postName"
-          class={tw`border  py-1 px-2 rounded`}
+          class={`border  py-1 px-2 rounded`}
           autoComplete="off"
           value={title}
           onInput={({ currentTarget }) =>
@@ -76,26 +74,26 @@ export default function FormPost() {
         <span>{title}</span>
         <button
           type="submit"
-          class={tw`px-2 py-1 border(gray-100 1) hover:bg-gray-200 block my-2`}
+          class={`px-2 py-1 border(gray-100 1) hover:bg-gray-200 block my-2`}
         >
           Crear Post 🧪
         </button>
       </form>
-      <section class={tw`my-2`}>
+      <section class={`my-2`}>
         {posts.map((post, idx) => (
-          <section class={tw`flex items-center gap-2`}>
+          <section class={`flex items-center gap-2`}>
             <h1>
               <span>{idx + 1}- </span>
               {post.title}
             </h1>
             <button
-              class={tw`px-2 py-1 border(gray-100 1) hover:bg-red-300 block my-2`}
+              class={`px-2 py-1 border(gray-100 1) hover:bg-red-300 block my-2`}
               onClick={() => handleDelete(post.id)}
             >
               Delete
             </button>
             <a
-              class={tw`px-2 py-1 border(gray-100 1) hover:bg-purple-300 block my-2`}
+              class={`px-2 py-1 border(gray-100 1) hover:bg-purple-300 block my-2`}
               href={`/posts/${post.id}`}
             >
               Editar

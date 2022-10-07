@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from 'preact';
-import { tw } from '@twind';
 import { useEffect, useState } from 'preact/hooks';
 import { Post } from './FormPost.tsx';
 
@@ -52,7 +49,7 @@ const FormEdit = (props: FormEdit) => {
     editPost(post.id);
   };
   return (
-    <section class={tw`p-4 mx-auto max-w-screen-md`}>
+    <section class={`p-4 mx-auto max-w-screen-md`}>
       <h1>Edit Post:</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="postName">Post Name:</label>
@@ -60,7 +57,7 @@ const FormEdit = (props: FormEdit) => {
           type="text"
           id="postName"
           name="postName"
-          class={tw`border py-1 px-2 rounded block`}
+          class={`border py-1 px-2 rounded block`}
           autoComplete="off"
           value={post.title}
           onInput={(e) =>
@@ -71,7 +68,7 @@ const FormEdit = (props: FormEdit) => {
           }
         />
         <button
-          class={tw`px-2 py-1 border(gray-100 1) hover:bg-green-300 block my-2`}
+          class={`px-2 py-1 border(gray-100 1) hover:bg-green-300 block my-2`}
         >
           Editar
         </button>
